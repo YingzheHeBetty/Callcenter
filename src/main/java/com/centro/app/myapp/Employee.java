@@ -1,26 +1,40 @@
 package com.centro.app.myapp;
+import java.util.*;
+// each employee has a id and a status: free == true means free, free == false means busy
 
 public class Employee implements Chain{
 		private Chain nextInChain;
-		private boolean free; // true : free; false: busy
+		private int id;
+		public boolean free;
 		
+		public Employee(int id, boolean free) {
+			this.id = id;
+			this.free = free;
+		}
+		
+		@Override
 		public void setNext(Chain c) {
 			nextInChain = c;
 		}
-		public Employee(boolean status) {
-			free = status;
-		}
-		
+		@Override
 		public void process(Call request) {
-			if (!free) {
-				System.out.println("Sorry, please wait for an available employee");
-			}
-			else if (request.level == 1) {
-				System.out.println("EmployeeProcessor : " + request.getLevel());
+			
+			if (request.level == 'a') {
+				System.out.println("Employee id " + this.id + " is handling phone call number "+ request.callId+ " at level " + request.getLevel());
+				this.free = false;
+				
 			}
 			else {
-				nextInChain.process(request);
+				 nextInChain.process(request);
 				}
+		}
+		
+		// if an employee took the phone call but he could not handle it, the phone call would be processed to the supervisor and the employee will be added back to the employeeList
+		public Deque<Employee> updateList (Deque<Employee> freeEmployee) {
+			if (this.free) {
+				freeEmployee.addLast(this);
+			}
+			return freeEmployee;
 		}
 }
   
