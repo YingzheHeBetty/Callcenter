@@ -12,7 +12,7 @@ public class FindCallHandler {
 			
 			public String getRespond() {
 				Employee em = new Employee();
-				Supervisor sup = this.request.getSupervisor();
+				Supervisor sup = this.request.getSupervisor(); // sup and man are global variables
 				Manager man = this.request.getManager();
 				em.setNext(sup);
 				sup.setNext(man);

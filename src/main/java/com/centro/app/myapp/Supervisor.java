@@ -1,5 +1,5 @@
 package com.centro.app.myapp;
-
+//Manager implements Chain interface
 public class Supervisor implements Chain{
 	private Chain nextInChain;
 	private boolean free;
@@ -15,7 +15,7 @@ public class Supervisor implements Chain{
 	public String process(Call request) {
 		if (free && request.getLevel() == 'b') {
 			this.free = false;
-			respond = "Supervisor is handling phone call number: " + request.callName + " at level " + request.getLevel();
+			respond = "Supervisor is handling phone call number " + request.callName + " at level " + request.getLevel();
 			return respond;	
 		}
 		else {

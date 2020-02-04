@@ -1,9 +1,9 @@
 package com.centro.app.myapp;
 import java.util.concurrent.Semaphore;
-import java.util.Scanner; 
+
 
 public class CallCenter {
-
+	 // at CallCenter, initialize 5 employee(semaphore), 1 manager, 1 supervisor
 	 public static void main(String args[]) throws InterruptedException  
 	 {
 		 	//creating a Semaphore object Employee with number of permits 5
@@ -13,8 +13,7 @@ public class CallCenter {
 			Manager manager = new Manager(true);
 			Supervisor supervisor = new Supervisor(true);
 			
-			
-			//creating two calls with name A and B
+			//creating calls that come at the same time 
 			Call call1 = new Call('a', "A", employee, supervisor, manager);
 			Call call2 = new Call('c', "B", employee, supervisor, manager);
 			Call call3 = new Call('c', "C", employee, supervisor, manager);
@@ -23,7 +22,7 @@ public class CallCenter {
 			Call call6 = new Call('a', "F", employee, supervisor, manager);
 			
 			
-			// stating threads A and B 
+			// stating threads 
 		    call1.start(); 
 		    call2.start(); 
 		    call3.start();
@@ -31,7 +30,7 @@ public class CallCenter {
 		    call5.start();
 		    call6.start();
 		      
-		    // waiting for threads A and B  
+		    // waiting for threads 
 		    call1.join(); 
 		    call2.join(); 
 		    call3.join();
@@ -39,8 +38,8 @@ public class CallCenter {
 		    call5.join();
 		    call6.join();
 		    
-		    // count will always remain 0 after 
-		    // both threads will complete their execution 
+		     
+		    // All threads will complete their execution 
 		    System.out.println("All phone calls are ended"); 
 			 
 	 }
