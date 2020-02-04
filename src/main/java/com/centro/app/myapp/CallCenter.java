@@ -3,7 +3,7 @@ import java.util.concurrent.Semaphore;
 
 
 public class CallCenter {
-	 // at CallCenter, initialize 5 employee(semaphore), 1 manager, 1 supervisor
+	 // at CallCenter, initialize 5 employees(semaphore), 1 manager, 1 supervisor
 	 public static void main(String args[]) throws InterruptedException  
 	 {
 		 	//creating a Semaphore object Employee with number of permits 5
