@@ -13,7 +13,7 @@ public class FindCallHandlerTest {
 	private Semaphore employee = new Semaphore(5);
 	//when Sup and man are free
 	@Test
-		// call level is a 
+	// call level is a 
 	public void test1() {
 		Supervisor sup = new Supervisor(true);
 		Manager man = new Manager(true);
@@ -46,8 +46,8 @@ public class FindCallHandlerTest {
 		assertEquals(respond,expected);
 	}
 	//when Sup is busy and man is free
-		@Test
-		// call level is a 
+	@Test
+	// call level is a 
 	public void test4() {
 		Supervisor sup = new Supervisor(false);
 		Manager man = new Manager(true);
@@ -80,42 +80,42 @@ public class FindCallHandlerTest {
 		assertEquals(respond,expected);
 	}
 	//when Sup is free and man is busy
-			@Test
-			// call level is a 
-		public void test7() {
-			Supervisor sup = new Supervisor(true);
-			Manager man = new Manager(false);
-			Call call7 = new Call('a', "G", employee, sup, man);
-			FindCallHandler findCallHandler7 = new FindCallHandler(call7);
-			String respond = findCallHandler7.getRespond();
-			String expected = "An employee is handling phone call number G at level a";
-			assertEquals(respond,expected);
-		}
-		@Test
-		// call level is b 
-		public void test8() {
-			Supervisor sup = new Supervisor(true);
-			Manager man = new Manager(false);
-			Call call8 = new Call('b', "H", employee, sup, man);
-			FindCallHandler findCallHandler8 = new FindCallHandler(call8);
-			String respond = findCallHandler8.getRespond();
-			String expected = "Supervisor is handling phone call number H at level b";
-			assertEquals(respond,expected);
-		}
-		@Test
-		// call level is c 
-		public void test9() {
-			Supervisor sup = new Supervisor(true);
-			Manager man = new Manager(false);
-			Call call9 = new Call('c', "I", employee, sup, man);
-			FindCallHandler findCallHandler9 = new FindCallHandler(call9);
-			String respond = findCallHandler9.getRespond();
-			String expected = "the supervisor is busy or can't handle the request, Manager is busy, please call again later";
-			assertEquals(respond,expected);
-		}
-		//when Sup is busy and man is busy
-		@Test
-		// call level is a 
+	@Test
+	// call level is a 
+	public void test7() {
+		Supervisor sup = new Supervisor(true);
+		Manager man = new Manager(false);
+		Call call7 = new Call('a', "G", employee, sup, man);
+		FindCallHandler findCallHandler7 = new FindCallHandler(call7);
+		String respond = findCallHandler7.getRespond();
+		String expected = "An employee is handling phone call number G at level a";
+		assertEquals(respond,expected);
+	}
+	@Test
+	// call level is b 
+	public void test8() {
+		Supervisor sup = new Supervisor(true);
+		Manager man = new Manager(false);
+		Call call8 = new Call('b', "H", employee, sup, man);
+		FindCallHandler findCallHandler8 = new FindCallHandler(call8);
+		String respond = findCallHandler8.getRespond();
+		String expected = "Supervisor is handling phone call number H at level b";
+		assertEquals(respond,expected);
+	}
+	@Test
+	// call level is c 
+	public void test9() {
+		Supervisor sup = new Supervisor(true);
+		Manager man = new Manager(false);
+		Call call9 = new Call('c', "I", employee, sup, man);
+		FindCallHandler findCallHandler9 = new FindCallHandler(call9);
+		String respond = findCallHandler9.getRespond();
+		String expected = "the supervisor is busy or can't handle the request, Manager is busy, please call again later";
+		assertEquals(respond,expected);
+	}
+	//when Sup is busy and man is busy
+	@Test
+	// call level is a 
 	public void test10() {
 		Supervisor sup = new Supervisor(false);
 		Manager man = new Manager(false);
